@@ -8,9 +8,10 @@ public class Klient
     private ArrayList<Wydarzenie> listaRezerwacji;
 
     //metody
-    public void dodajRezerwacje( Wydarzenie Wydarzenie)
+    public boolean dodajRezerwacje( Wydarzenie Wydarzenie)
     {
-       listaRezerwacji.add(Wydarzenie);
+       listaRezerwacji.add( Wydarzenie);
+       return true;
     }
 
     public void wyświetlRezerwacje( ArrayList<Wydarzenie> listaRezerwacji)

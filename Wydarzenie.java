@@ -8,17 +8,19 @@ public class Wydarzenie
     private int dostepneMiejsca;
 
     //metody
-    public toString( String nazwa, double cena, String data, String miejsce, int maxLiczbaMiejsc, int dostepneMiejsca)
+    public String toString( String nazwa, double cena, String data, String miejsce, int maxLiczbaMiejsc, int dostepneMiejsca)
     {
         return "Nazwa: " + nazwa + "Cena: " + cena + "Data: " + data + "Miejsce: " + miejsce + "Max liczba miejsc: " + maxLiczbaMiejsc + "Dostepne miejsca: " + dostepneMiejsca;
     }
 
-    public void zarezerwujMiejsce( int dostepneMiejsca, int maxLiczbaMiejsc)
+    public boolean zarezerwujMiejsce()
     {
-        if( dostepneMiejsca > 0)
+        if( this.dostepneMiejsca > 0)
         {
-            this.dostepneMiejsca -= 1;
+            this.dostepneMiejsca--;
+            return true;
         }
+        return false;
     }
     //metody
 
@@ -29,6 +31,7 @@ public class Wydarzenie
         this.maxLiczbaMiejsc = 100;
         this.dostepneMiejsca = 0;
     }
+
     public Wydarzenie( String nazwa, double cena, String data)
     {
         this.nazwa = nazwa;
@@ -37,6 +40,7 @@ public class Wydarzenie
         this.maxLiczbaMiejsc = 100;
         this.dostepneMiejsca = 0;
     }
+
     public String Wydarzenie( String nazwa, double cena, String data, String miejsce)
     {
         this.nazwa = nazwa;
@@ -45,6 +49,7 @@ public class Wydarzenie
         this.miejsce = miejsce;
         this.maxLiczbaMiejsc = 100;
         this.dostepneMiejsca = 0;
+        return nazwa;
     }
     //konstruktory
 
@@ -73,16 +78,18 @@ public class Wydarzenie
     public void setData(String data) {
         this.data = data;
     }
+
     public double getCena() {
-        return cena;
+        return this.cena;
     }
-    public void setCena(double cena) {
+    public void setCena( double cena) {
         this.cena = cena;
     }
+
     public String getNazwa() {
-        return nazwa;
+        return this.nazwa;
     }
-    public void setNazwa(String nazwa) {
+    public void setNazwa( String nazwa) {
         this.nazwa = nazwa;
     }
     //gettery i settery
