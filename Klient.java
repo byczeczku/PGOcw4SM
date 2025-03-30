@@ -3,70 +3,62 @@ import java.util.ArrayList;
 public class Klient
 {
     private String imie;
+    public String getImie() {
+        return this.imie;
+    }
+    public void setImie(String imie) {
+        this.imie= imie;
+    }
     private String nazwisko;
+    public String getNazwisko() {
+        return this.nazwisko;
+    }
+    public void setNazwisko(String nazwisko) {
+        this.nazwisko= nazwisko;
+    }
     private String email;
+    public String getEmail() {
+        return this.email;
+    }
+    public void setEmail(String email) {
+        this.email= email;
+    }
     private ArrayList<Wydarzenie> listaRezerwacji;
 
-    //metody
-    public boolean dodajRezerwacje( Wydarzenie Wydarzenie)
+    public Klient( String imie, String nazwisko)
     {
-       listaRezerwacji.add( Wydarzenie);
-       return true;
+        this.listaRezerwacji= new ArrayList<Wydarzenie>();
+        this.imie= imie;
+        this.nazwisko= nazwisko;
+    }
+    public Klient( String imie, String nazwisko, String email)
+    {
+        this.listaRezerwacji= new ArrayList<Wydarzenie>();
+        this.imie= imie;
+        this.nazwisko= nazwisko;
+        this.email= email;
     }
 
-    public void wyświetlRezerwacje( ArrayList<Wydarzenie> listaRezerwacji)
+    public boolean dodajRezerwacje( Wydarzenie Wydarzenie)
     {
-        for( int i = 0; i < listaRezerwacji.size(); i++)
-        {
-            System.out.println(listaRezerwacji.get(i));
-        }
+        this.listaRezerwacji.add( Wydarzenie);
+        return true;
+    }
+
+    public void wyświetlRezerwacje( )
+    {
+        for( int i= 0; i <this.listaRezerwacji.size(); i++)
+            System.out.println( listaRezerwacji.get(i).toString());
     }
 
     public void anulujRezerwacje( Wydarzenie Wydarzenie)
     {
-        for( int i = 0; i < listaRezerwacji.size(); i++)
+        for( int i= 0; i< this.listaRezerwacji.size(); i++)
         {
-            if (listaRezerwacji.get( i).equals( Wydarzenie))
-            {
-                listaRezerwacji.remove( i);
-            }
-            System.out.println( listaRezerwacji.get(i));
+            if( this.listaRezerwacji.get( i).equals( Wydarzenie))
+                System.out.println( this.listaRezerwacji.get( i).toString());
+            this.listaRezerwacji.remove( i);
+            break;
         }
     }
-    //metody
-
-    //konstruktory
-    public Klient( String imie, String nazwisko)
-    {
-        this.imie = imie;
-        this.nazwisko = nazwisko;
-    }
-    public Klient( String imie, String nazwisko, String email)
-    {
-        this.imie = imie;
-        this.nazwisko = nazwisko;
-        this.email = email;
-    }
-    //konstruktory
-
-    //gettery i settery
-    public String getImie() {
-        return imie;
-    }
-    public void setImie(String imie) {
-        this.imie = imie;
-    }
-    public String getNazwisko() {
-        return nazwisko;
-    }
-    public void setNazwisko(String nazwisko) {
-        this.nazwisko = nazwisko;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    //gettery i settery
 }

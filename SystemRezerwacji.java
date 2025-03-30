@@ -2,27 +2,26 @@ import java.util.ArrayList;
 
 public class SystemRezerwacji
 {
-    public int Zaba;
-
     private ArrayList<Wydarzenie> listaWydarzen;
     private ArrayList<Klient> listaKlientow;
 
-    public SystemRezerwacji() {}
-
+    public SystemRezerwacji()
+    {
+        this.listaWydarzen= new ArrayList<Wydarzenie>();
+        this.listaKlientow= new ArrayList<Klient>();
+    }
     public void dodajWydarzenie( Wydarzenie wydarzenie) {
         this.listaWydarzen.add( wydarzenie);
-        //return true;
     }
 
-    public boolean dodajKlienta(Klient klient) {
+    public void dodajKlienta( Klient klient) {
         this.listaKlientow.add( klient);
-        return true;
     }
 
     public boolean dokonajRezerwacji( Klient klient, Wydarzenie wydarzenie) {
 
         if( wydarzenie.zarezerwujMiejsce()== true) {
-            klient.dodajRezerwacje(wydarzenie);
+            klient.dodajRezerwacje( wydarzenie);
             return true;
         }
         return false;
@@ -30,19 +29,17 @@ public class SystemRezerwacji
 
     public Wydarzenie znajdzWydarzenie( String nazwa) {
         for( int i= 0; i< this.listaWydarzen.size(); i++) {
-            Wydarzenie wydarzenie= this.listaWydarzen.get(i);
-            if( wydarzenie.getNazwa().equals( nazwa)) {
-                return wydarzenie;
+            if( this.listaWydarzen.get(i).getNazwa().equals( nazwa)) {
+                return this.listaWydarzen.get(i);
             }
         }
         return null;
     }
 
-    public Klient znajdzKlienta(String nazwisko) {
+    public Klient znajdzKlienta( String nazwisko) {
         for( int i= 0; i < this.listaKlientow.size(); i++) {
-            Klient klient= this.listaKlientow.get(i);
-            if( klient.getNazwisko().equals(nazwisko)) {
-                return klient;
+            if( this.listaKlientow.get(i).getNazwisko().equals(nazwisko)) {
+                return this.listaKlientow.get(i);
             }
         }
         return null;
